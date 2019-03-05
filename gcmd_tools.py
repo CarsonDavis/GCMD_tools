@@ -10,7 +10,7 @@ from io import BytesIO
 from lxml import etree
 
 
-class gcmdFile(dict):
+class GCMDict(dict):
 
     def __init__(self, rdf_url):
         self.url = rdf_url
@@ -50,13 +50,13 @@ class gcmdFile(dict):
 
     def __setitem__(self, key, value):
         if self._mutable:
-            super(gcmdFile, self).__setitem__(key, value)
+            super(GCMDict, self).__setitem__(key, value)
         else:
             raise UpdateError('Modifying the dictionary is not allowed. To add keywords, please contact GCMD directly.')
 
     def __delitem__(self, key, value):
         if self._mutable:
-            super(gcmdFile, self).__setitem__(key, value)
+            super(GCMDict, self).__setitem__(key, value)
         else:
             raise UpdateError('Modifying the dictionary is not allowed. To remove keywords, please contact GCMD directly.')
 
