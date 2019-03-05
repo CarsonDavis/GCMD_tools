@@ -52,10 +52,13 @@ class gcmdFile(dict):
         if self._mutable:
             super(gcmdFile, self).__setitem__(key, value)
         else:
-            raise ZeroDivisionError('To add keywords, please contact GCMD directly.')
+            raise UpdateError('Modifying the dictionary is not allowed. To add keywords, please contact GCMD directly.')
 
     def __delitem__(self, key, value):
         if self._mutable:
             super(gcmdFile, self).__setitem__(key, value)
         else:
-            raise ZeroDivisionError('To remove keywords, please contact GCMD directly.')
+            raise UpdateError('Modifying the dictionary is not allowed. To remove keywords, please contact GCMD directly.')
+
+class UpdateError(Exception):
+    pass
