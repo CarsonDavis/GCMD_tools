@@ -1,6 +1,6 @@
 '''
-GCMD JSON
-Converts GCMD files into JSON
+GCMDict
+Converts GCMD files into custom immutable Python dictionaries with the ability to save as a JSON file
 '''
 
 # Import necessary libraries
@@ -59,6 +59,7 @@ class GCMDict(dict):
             super(GCMDict, self).__setitem__(key, value)
         else:
             raise UpdateError('Modifying the dictionary is not allowed. To remove keywords, please contact GCMD directly.')
+
 
 class UpdateError(Exception):
     pass
